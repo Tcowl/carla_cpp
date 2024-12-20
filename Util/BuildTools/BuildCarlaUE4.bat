@@ -216,15 +216,15 @@ rem ============================================================================
     goto good_exit
 
 :error_build
-    echo.
-    echo %FILE_N% [ERROR] There was a problem building CarlaUE4.
-    echo %FILE_N%         Please go to "Carla\Unreal\CarlaUE4", right click on
-    echo %FILE_N%         "CarlaUE4.uproject" and select:
-    echo %FILE_N%         "Generate Visual Studio project files"
-    echo %FILE_N%         Open de generated "CarlaUE4.sln" and try to manually compile it
+    echo.rem用于输出一个空行，增加输出的可读性间隔
+    echo %FILE_N% [ERROR] There was a problem building CarlaUE4.rem 输出包含变量%FILE_N%（可能是文件名之类的预定义变量）和CarlaUE4构建出错的信息
+    echo %FILE_N%         Please go to "Carla\Unreal\CarlaUE4", right click on rem 给用户提示操作步骤
+    echo %FILE_N%         "CarlaUE4.uproject" and select:r
+    echo %FILE_N%         "Generate Visual Studio project files"rem 告知用户进入特定目录，找到CarlaUE4.uproject文件，右键点击并选择生成VS项目文件，可能是因为之前构建问题源于项目文件损坏或不完整
+    echo %FILE_N%         Open de generated "CarlaUE4.sln" and try to manually compile it rem提示用户打开生成的CarlaUE4.sln文件并手动编译，以便检查错误原因
     echo %FILE_N%         and check what is causing the error.
     goto bad_exit
-
+rem  跳转到名为bad_exit的标签处，bad_exit标签可能定义了出错时的清理或结束脚本的操作（此处未显示具体内容）
 :good_exit
     endlocal
     exit /b 0
